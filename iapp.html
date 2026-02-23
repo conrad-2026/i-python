@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iapp</title>
+    <style>
+        /* 全局样式，简洁适配电脑/手机端 */
+        * {margin: 0; padding: 0; box-sizing: border-box; font-family: "微软雅黑", sans-serif;}
+        body {background-color: #f5f5f5; color: #333; line-height: 1.6;}
+        /* 头部导航（含5个菜单：爱乒乓+菜单1-5） */
+        header {background-color: #2c3e50; padding: 1rem 0; box-shadow: 0 2px 5px rgba(0,0,0,0.2);}
+        .nav-container {width: 90%; max-width: 1200px; margin: 0 auto;}
+        .logo {color: white; font-size: 1.8rem; font-weight: bold; margin-bottom: 1rem;}
+        .menu {display: flex; gap: 1.2rem; list-style: none; flex-wrap: wrap;}
+        .menu a {color: white; text-decoration: none; padding: 0.5rem 1rem; border-radius: 4px; transition: background-color 0.3s;}
+        .menu a:hover {background-color: #34495e;}
+        .menu a.active {background-color: #1abc9c;} /* 选中菜单高亮 */
+        /* 主内容区 */
+        .container {width: 90%; max-width: 1200px; margin: 2rem auto; background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1);}
+        .page-title {font-size: 1.5rem; color: #2c3e50; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid #1abc9c;}
+        .intro {font-size: 1.1rem; margin-bottom: 2rem; line-height: 1.8;}
+        /* 爱乒乓页面：二维码样式（核心） */
+        .qrcode-container {display: flex; gap: 4rem; justify-content: center; align-items: center; padding: 2rem 0; flex-wrap: wrap;}
+        .qrcode-card {text-align: center; width: 280px;}
+        .qrcode-card img {width: 220px; height: 220px; border: 1px solid #eee; padding: 8px; border-radius: 8px; margin-bottom: 1rem;}
+        .qrcode-card p {font-size: 1.1rem; font-weight: 500; color: #2c3e50;}
+        .qrcode-card .tip {font-size: 0.9rem; color: #666; margin-top: 0.5rem;}
+        /* 其他菜单预留页面样式 */
+        .reserve-page {padding: 2rem 0; text-align: center;}
+        .reserve-page p {font-size: 1.1rem; color: #555;}
+        /* 底部样式 */
+        footer {text-align: center; padding: 1rem; color: #666; margin-top: 2rem; font-size: 0.9rem;}
+        /* 页面切换：默认隐藏，点击菜单显示 */
+        .page {display: none;}
+        .page.active-page {display: block;}
+    </style>
+</head>
+<body>
+    <!-- 头部导航（5个菜单：爱乒乓+菜单1-5） -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">iapp</div>
+            <ul class="menu" id="menuList">
+                <li><a href="javascript:;" class="menu-item" data-page="pingpongPage">爱乒乓</a></li>
+                <li><a href="javascript:;" class="menu-item" data-page="menu1">菜单1</a></li>
+                <li><a href="javascript:;" class="menu-item" data-page="menu2">菜单2</a></li>
+                <li><a href="javascript:;" class="menu-item" data-page="menu3">菜单3</a></li>
+                <li><a href="javascript:;" class="menu-item" data-page="menu4">菜单4</a></li>
+                <li><a href="javascript:;" class="menu-item" data-page="menu5">菜单5</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- 主内容区（各菜单对应页面） -->
+    <div class="container">
+        <!-- 首页（默认显示，网页说明） -->
+        <div class="page active-page" id="homePage">
+            <h2 class="page-title">iapp 网页说明</h2>
+            <p class="intro">
+                本网页专注于<strong>Windows桌面软件推广</strong>与<strong>乒乓球赛事运营</strong>两大核心方向，
+                为Windows桌面软件提供展示、推广、下载对接渠道，为乒乓球赛事提供报名、赛事信息、参赛选手管理、赛事承办对接等一站式服务，
+                打造软件推广与体育赛事结合的综合服务平台。点击上方菜单可进入对应功能页面，其中“爱乒乓”为乒乓球赛事专属服务页面。
+            </p>
+        </div>
+
+        <!-- 核心页面：爱乒乓（乒乓球赛事页面，含2个二维码） -->
+        <div class="page" id="pingpongPage">
+            <h2 class="page-title">乒乓球赛事专属服务</h2>
+            <p class="intro">扫描下方对应二维码，参与赛事或管理赛事，实现成绩统计、计分评定等一站式服务（复刻开球网核心功能）</p>
+            <div class="qrcode-container">
+                <!-- 承担方二维码：跳转至承担方管理端 -->
+                <div class="qrcode-card">
+                    <img src="C:/Users/Administrator/Desktop/iapp/承担方二维码.png" alt="赛事承担方二维码">
+                    <p>赛事承担方二维码</p>
+                    <p class="tip">扫码进入管理端：创建赛事、统计成绩、评定计分</p>
+                </div>
+                <!-- 参赛选手二维码：跳转至选手端 -->
+                <div class="qrcode-card">
+                    <img src="C:/Users/Administrator/Desktop/iapp/参赛选手二维码.png" alt="参赛选手二维码">
+                    <p>参赛选手二维码</p>
+                    <p class="tip">扫码进入选手端：报名参赛、查看赛程、查询成绩</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 菜单1：Windows桌面软件推广（预留，可直接补充内容） -->
+        <div class="page" id="menu1">
+            <h2 class="page-title">Windows桌面软件推广</h2>
+            <div class="reserve-page">
+                <p>本页面为Windows桌面软件推广专区，可补充软件介绍、下载链接、使用教程等内容</p>
+                <p style="margin-top: 1rem;">示例：XX办公软件（Windows端）- 批量处理文件，提升办公效率；XX系统工具 - 优化电脑性能，一键清理垃圾</p>
+            </div>
+        </div>
+
+        <!-- 菜单2-5：预留页面（可按需补充，如软件测评、赛事公告等） -->
+        <div class="page" id="menu2">
+            <h2 class="page-title">菜单2 功能专区</h2>
+            <div class="reserve-page"><p>可补充：软件测评、赛事直播、选手排名等拓展功能</p></div>
+        </div>
+        <div class="page" id="menu3">
+            <h2 class="page-title">菜单3 功能专区</h2>
+            <div class="reserve-page"><p>可补充：软件测评、赛事直播、选手排名等拓展功能</p></div>
+        </div>
+        <div class="page" id="menu4">
+            <h2 class="page-title">菜单4 功能专区</h2>
+            <div class="reserve-page"><p>可补充：联系方式、商务合作、意见反馈等内容</p></div>
+        </div>
+        <div class="page" id="menu5">
+            <h2 class="page-title">菜单5 关于我们</h2>
+            <div class="reserve-page"><p>可补充：平台介绍、团队信息、合作方展示等内容</p></div>
+        </div>
+    </div>
+
+    <!-- 底部 -->
+    <footer>
+        © 2026 iapp 版权所有 | 专注Windows桌面软件推广与乒乓球赛事运营
+    </footer>
+
+    <!-- 菜单切换JS（点击菜单显示对应页面，无需修改） -->
+    <script>
+        const menuItems = document.querySelectorAll('.menu-item');
+        const pages = document.querySelectorAll('.page');
+        menuItems.forEach(item => {
+            item.addEventListener('click', function() {
+                menuItems.forEach(mi => mi.classList.remove('active'));
+                this.classList.add('active');
+                pages.forEach(p => p.classList.remove('active-page'));
+                const pageId = this.getAttribute('data-page');
+                document.getElementById(pageId).classList.add('active-page');
+            });
+        });
+    </script>
+</body>
+</html>

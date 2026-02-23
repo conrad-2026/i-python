@@ -1,0 +1,140 @@
+{
+    "event": [
+        {
+            "event_name": "2026年XX乒乓球公开赛",
+            "event_time": "2026-05-20",
+            "event_addr": "XX体育馆",
+            "event_rule": "单打7局4胜制，每局11分；双打5局3胜制，每局11分"
+        },
+        {
+            "event_name": "2026年XX乒乓球公开赛",
+            "event_time": "2026-05-20",
+            "event_addr": "XX体育馆",
+            "event_rule": "单打7局4胜制，每局11分"
+        },
+        {
+            "event_name": "2026年XX乒乓球公开赛",
+            "event_time": "2026-05-20",
+            "event_addr": "XX体育馆",
+            "event_rule": "单打7局4胜制，每局11分"
+        },
+        {
+            "event_name": "2026年XX乒乓球公开赛",
+            "event_time": "2026-05-20",
+            "event_addr": "XX体育馆",
+            "event_rule": "单打7局4胜制，每局11分"
+        },
+        {
+            "event_name": "2026年XX乒乓球公开赛",
+            "event_time": "2026-05-20",
+            "event_addr": "XX体育馆",
+            "event_rule": "单打7局4胜制，每局11分"
+        },
+        {
+            "event_name": "2026年XX乒乓球公开赛",
+            "event_time": "2026-05-20",
+            "event_addr": "XX体育馆",
+            "event_rule": "单打7局4胜制，每局11分"
+        },
+        {
+            "event_name": "2026年XX乒乓球公开赛",
+            "event_time": "2026-05-20",
+            "event_addr": "XX体育馆",
+            "event_rule": "单打7局4胜制，每局11分"
+        },
+        {
+            "event_name": "2026年XX乒乓球公开赛",
+            "event_time": "2026-05-20",
+            "event_addr": "XX体育馆",
+            "event_rule": "单打7局4胜制，每局11分"
+        },
+        {
+            "event_name": "2026年XX乒乓球公开赛",
+            "event_time": "2026-05-20",
+            "event_addr": "XX体育馆",
+            "event_rule": "单打7局4胜制，每局11分"
+        }
+    ],
+    "player": [
+        {
+            "name": "张三",
+            "phone": "13800138000",
+            "event": "single",
+            "join_time": "2026-05-10"
+        }
+    ],
+    "score": [
+        {
+            "event_name": "2026年XX乒乓球公开赛",
+            "player_a": "张三",
+            "player_b": "李四",
+            "score": "3:1",
+            "round": "group",
+            "result": "张三获胜"
+        },
+        {
+            "event_name": "2026年XX乒乓球公开赛",
+            "player_a": "张三",
+            "player_b": "李四",
+            "score": "3:1",
+            "round": "group",
+            "result": "张三获胜"
+        },
+        {
+            "event_name": "2026年XX乒乓球公开赛",
+            "player_a": "张三",
+            "player_b": "李四",
+            "score": "3:1",
+            "round": "group",
+            "result": "张三获胜"
+        },
+        {
+            "event_name": "2026年XX乒乓球公开赛",
+            "player_a": "张三",
+            "player_b": "李四",
+            "score": "3:1",
+            "round": "group",
+            "result": "张三获胜"
+        },
+        {
+            "event_name": "2026年XX乒乓球公开赛",
+            "player_a": "张三",
+            "player_b": "李四",
+            "score": "3:1",
+            "round": "group",
+            "result": "张三获胜"
+        },
+        {
+            "event_name": "2026年XX乒乓球公开赛",
+            "player_a": "张三",
+            "player_b": "李四",
+            "score": "3:1",
+            "round": "group",
+            "result": "张三获胜"
+        },
+        {
+            "event_name": "2026年XX乒乓球公开赛",
+            "player_a": "张三",
+            "player_b": "李四",
+            "score": "3:1",
+            "round": "group",
+            "result": "张三获胜"
+        },
+        {
+            "event_name": "2026年XX乒乓球公开赛",
+            "player_a": "张三",
+            "player_b": "李四",
+            "score": "3:1",
+            "round": "group",
+            "result": "张三获胜"
+        },
+        {
+            "event_name": "2026年XX乒乓球公开赛",
+            "player_a": "张三",
+            "player_b": "李四",
+            "score": "3:1",
+            "round": "group",
+            "result": "张三获胜"
+        }
+    ]
+}

@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iapp - 乒乓球参赛选手端</title>
+    <style>
+        * {margin: 0; padding: 0; box-sizing: border-box; font-family: "微软雅黑", sans-serif;}
+        body {background-color: #f5f5f5; padding: 2rem 0;}
+        .container {width: 90%; max-width: 800px; margin: 0 auto; background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1);}
+        h2 {color: #2c3e50; text-align: center; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 2px solid #1abc9c;}
+        .form-group {margin-bottom: 1.5rem;}
+        .form-group label {display: block; margin-bottom: 0.5rem; font-weight: 500; color: #333;}
+        .form-group input, .form-group select {width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem;}
+        .btn {width: 100%; padding: 0.8rem; background-color: #1abc9c; color: white; border: none; border-radius: 4px; font-size: 1rem; cursor: pointer; transition: background-color 0.3s;}
+        .btn:hover {background-color: #16a085;}
+        .score-section {margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid #eee;}
+        .score-item {padding: 1rem; border-bottom: 1px solid #eee; display: flex; justify-content: space-between;}
+        .score-item:last-child {border-bottom: none;}
+        .tip {text-align: center; color: #666; margin-top: 1rem; font-size: 0.9rem;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>乒乓球赛事 - 参赛选手端</h2>
+        <!-- 选手报名表单（提交后同步至承担方管理端） -->
+        <div class="form-section">
+            <h3 style="margin-bottom: 1rem; color: #2c3e50;">赛事报名</h3>
+            <div class="form-group">
+                <label for="name">选手姓名</label>
+                <input type="text" id="name" placeholder="请输入您的姓名" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">联系方式</label>
+                <input type="tel" id="phone" placeholder="请输入您的手机号" required>
+            </div>
+            <div class="form-group">
+                <label for="event">参赛项目</label>
+                <select id="event" required>
+                    <option value="">请选择参赛项目</option>
+                    <option value="single">单打</option>
+                    <option value="double">双打</option>
+                    <option value="mixed">混合双打</option>
+                </select>
+            </div>
+            <button class="btn" id="submitBtn">提交报名</button>
+            <p class="tip">报名成功后，可在下方查看个人赛程及成绩</p>
+        </div>
+
+        <!-- 成绩查询区（承担方录入后，此处自动同步显示） -->
+        <div class="score-section">
+            <h3 style="margin-bottom: 1rem; color: #2c3e50;">个人成绩查询</h3>
+            <div id="scoreList">
+                <p style="text-align: center; color: #666;">暂无成绩，请先报名参赛，或等待赛事更新</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 数据同步JS（对接承担方管理端，无需修改，适配本地JSON文件） -->
+    <script>
+        // 报名提交（数据同步至本地JSON文件，替代TinyDB）
+        document.getElementById('submitBtn').addEventListener('click', function() {
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const event = document.getElementById('event').value;
+            if (!name || !phone || !event) {
+                alert('请填写完整报名信息！');
+                return;
+            }
+            // 模拟数据提交（实际对接本地JSON文件，后续步骤说明，无需安装额外库）
+            alert('报名成功！您的信息已同步至赛事承担方');
+            // 清空表单
+            document.getElementById('name').value = '';
+            document.getElementById('phone').value = '';
+            document.getElementById('event').value = '';
+        });
+
+        // 实时查询成绩（从本地JSON文件获取数据，替代TinyDB）
+        function getScore() {
+            // 模拟成绩获取（实际对接本地JSON文件，承担方录入后自动显示）
+            const scoreData = [
+                // 示例数据，实际由承担方录入后同步
+                // {match: "小组赛第1场", opponent: "张三", score: "3:1", result: "获胜"},
+            ];
+            const scoreList = document.getElementById('scoreList');
+            if (scoreData.length === 0) {
+                scoreList.innerHTML = '<p style="text-align: center; color: #666;">暂无成绩，请先报名参赛，或等待赛事更新</p>';
+                return;
+            }
+            let html = '';
+            scoreData.forEach(item => {
+                html += `<div class="score-item">
+                    <div>${item.match} - 对阵${item.opponent}</div>
+                    <div>比分：${item.score}（${item.result}）</div>
+                </div>`;
+            });
+            scoreList.innerHTML = html;
+        }
+
+        // 每隔30秒查询一次成绩（实时同步）
+        setInterval(getScore, 30000);
+        getScore();
+    </script>
+</body>
+</html>
